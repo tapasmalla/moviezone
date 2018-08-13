@@ -8,6 +8,22 @@
 				"user_email='$email'"
 			);
 		}
+
+		function get_data($usertype){
+			return Helpers::select("area_id,area_name","mz_area","$usertype");
+		}
+
+		function get_theater_areawise($id){
+			return Helpers::select("the_id,the_name","mz_theater","the_areaid='$id'");
+		}
+
+		function get_movie_type(){
+			return Helpers::select("*","mz_motype","1");
+		}
+
+		function get_movie_lang(){
+			return Helpers::select("*","mz_lang","1");
+		}
 	}
 
 	$obj = new Project();

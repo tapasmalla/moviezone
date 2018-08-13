@@ -64,6 +64,9 @@
                 <li><a class="dropdown-item" href="addarea.php">Add Area</a></li>
                 <li><a class="dropdown-item" href="addtheater.php">Add Theater</a></li>
                 <li><a class="dropdown-item" href="addscreen.php">Add Screen</a></li>
+                <li><a class="dropdown-item" href="addmovie_type.php">Add Movie Type</a></li>
+                <li><a class="dropdown-item" href="addlanguage.php">Add Language</a></li>
+                <li><a class="dropdown-item" href="addmovie.php">Add Movie</a></li>
 
                 <?php 
                   endif;

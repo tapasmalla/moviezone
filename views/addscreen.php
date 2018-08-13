@@ -13,11 +13,34 @@
  	  		<!-- <h2 class="from_hr">Resister Form</h2> -->
  	  		<div class="form-style-6">
 				<h1>Add Screen</h1>
-				<form id="changepass_form">
-					<select>
-						<option>please select</option>
+				<form id="screen_form">
+				
+					<?php 
+					$usertype = $_SESSION['us_type'];
+						$result = $obj->get_data($usertype);
+						// pre($result);
+					 ?>
+					<select name="areaid" class="select_area">
+						<option value="">please select Area</option>
+						<?php 
+							if(isset($result)){
+								foreach($result as $val){
+									$id = $val['area_id'];
+									echo "<option value='$id'>";
+									echo $val['area_name'];
+									echo "</option>";
+								}
+							 
+							}
+						?>
 					</select>
-					<input type="text" name="screen" placeholder="Your Screen" />
+						
+					
+					<select class="select_theaterid" name="theaterid">
+						<option value="">please Select Theater</option>
+					</select>
+					<input type="text" name="screen" placeholder="Screen Name" />
+					<input type="text" name="seat" placeholder="No of Seat" />
 					<button type="button" class="btn btn-success btn_addscreen" >Submit</button>
 					
 				</form>

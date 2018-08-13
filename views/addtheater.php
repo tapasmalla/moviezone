@@ -13,11 +13,28 @@
  	  		<!-- <h2 class="from_hr">Resister Form</h2> -->
  	  		<div class="form-style-6">
 				<h1>Add Theater</h1>
-				<form id="changepass_form">
-					<select>
-						<option>please select</option>
+				<form id="theater_form">
+				
+					<?php 
+					$usertype = $_SESSION['us_type'];
+						$result = $obj->get_data($usertype);
+						// pre($result);
+					 ?>
+					<select name="areaid">
+						<option value="">please select</option>
+						<?php 
+							if(isset($result)){
+								foreach($result as $val){
+									$id = $val['area_id'];
+									echo "<option value='$id'>";
+									echo $val['area_name'];
+									echo "</option>";
+								}
+							 
+							}
+						?>
 					</select>
-					<input type="text" name="treater" placeholder="Theater Name" />
+					<input type="text" name="theater" placeholder="Theater Name" />
 					<button type="button" class="btn btn-success btn_addtheater" >Submit</button>
 					
 				</form>

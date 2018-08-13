@@ -140,4 +140,168 @@ $(document).ready(function(){
 			}
 		})
 	});
+
+	$(".btn_addarea").click(function(response){
+		// alert(1)
+		res = $("#area_form").serialize();
+		// console.log(res);
+		$.ajax({
+			type:'post',
+			data:res,
+			url:'../controllers/addarea_action.php',
+			success:function(result){
+				console.log(result);
+				if(result == "ok"){
+					$("#forgot3_form").val("");
+				$(".errdiv").html("Your parssword successfully changed");
+
+				}
+				else{
+				$(".errdiv").html(result);
+				}
+			},
+			error:function(err){
+
+			}
+		})
+	});
+
+	$(".btn_addtheater").click(function(response){
+		// alert(1)
+		res = $("#theater_form").serialize();
+		// console.log(res);
+		$.ajax({
+			type:'post',
+			data:res,
+			url:'../controllers/addtheater_action.php',
+			success:function(result){
+				console.log(result);
+				if(result == "ok"){
+				
+				$(".errdiv").html("Your parssword successfully changed");
+
+				}
+				else{
+				$(".errdiv").html(result);
+				}
+			},
+			error:function(err){
+
+			}
+		})
+	});
+
+	$(".select_area").change(function(){
+		// alert(1);
+		arid = $(this).val();
+		// alert(arid);
+		if(arid == ""){
+			alert("Please select Area");
+		}
+		else{
+			$.ajax({
+				type:"post",
+				data:"areaid="+arid,
+				url:"../controllers/get_theater_areawise.php",
+				success:function(result){
+					console.log(result);
+					$(".select_theaterid").html(result);
+				},
+				error:function(err){
+					console.log(err);
+				}
+			})
+		}
+	});
+
+	$(".btn_addscreen").click(function(response){
+		// alert(1)
+		res = $("#screen_form").serialize();
+		// console.log(res);
+		$.ajax({
+			type:'post',
+			data:res,
+			url:'../controllers/addscreen_action.php',
+			success:function(result){
+				console.log(result);
+				if(result == "ok"){
+					
+				$(".errdiv").html("hello");
+
+				}
+				else{
+				$(".errdiv").html(result);
+				}
+			},
+			error:function(err){
+
+			}
+		})
+	});
+
+	$(".btn_movietype").click(function(response){
+		// alert(1)
+		res = $("#movietype_form").serialize();
+		// console.log(res);
+		$.ajax({
+			type:'post',
+			data:res,
+			url:'../controllers/addmovietype_action.php',
+			success:function(result){
+				console.log(result);
+				if(result == "ok"){
+					
+				$(".errdiv").html("hello");
+
+				}
+				else{
+				$(".errdiv").html(result);
+				}
+			},
+			error:function(err){
+
+			}
+		})
+	});
+
+	$(".btn_language").click(function(response){
+		// alert(1)
+		res = $("#language_form").serialize();
+		// console.log(res);
+		$.ajax({
+			type:'post',
+			data:res,
+			url:'../controllers/addlanguage_action.php',
+			success:function(result){
+				console.log(result);
+				if(result == "ok"){
+					
+				$(".errdiv").html("hello");
+
+				}
+				else{
+				$(".errdiv").html(result);
+				}
+			},
+			error:function(err){
+
+			}
+		})
+	});
+
+	$(".btn_addmovie").click(function(){
+		// alert(1)
+		res = $("#movie_form").serialize();
+		// console.log(res);
+		$.ajax({
+			type:'post',
+			data:res,
+			url:'../controllers/movie_action.php',
+			success:function(result){
+				console.log(result);
+				$(".errdiv").html(result);
+			}
+		})
+	})
+
 });
